@@ -58,7 +58,7 @@ class editor extends JFrame implements ActionListener {
 		mi2.addActionListener(this);
 		mi3.addActionListener(this);
 		mi9.addActionListener(this);
-
+                 //  ading menuitems to menu
 		m1.add(mi1);
 		m1.add(mi2);
 		m1.add(mi3);
@@ -167,7 +167,7 @@ class editor extends JFrame implements ActionListener {
 		JMenuItem mc = new JMenuItem("close");
 
 		mc.addActionListener(this);
-
+               //  adding menu to menu bar
 		mb.add(m1);
 		mb.add(m2);
 		mb.add(m3);
@@ -210,7 +210,8 @@ class editor extends JFrame implements ActionListener {
 
 				try {
 					// Create a file writer
-					FileWriter wr = new FileWriter(fi, false);
+					
+					FileWriter wr = new FileWriter(fi, false);//flase bcoz the bytes will be written at the begning of the file rather than ending
 
 					// Create buffered writer to write
 					BufferedWriter w = new BufferedWriter(wr);
@@ -218,11 +219,12 @@ class editor extends JFrame implements ActionListener {
 					// Write
 					w.write(t.getText());
 
-					w.flush();
-					w.close();
+					w.flush();  // used to write buffered output to underlying stream
+					w.close();   
 				}
+				// filewriter can throw security exception
 				catch (Exception evt) {
-					JOptionPane.showMessageDialog(f, evt.getMessage());
+					JOptionPane.showMessageDialog(f, evt.getMessage());   //JOptionPane is used for the dialouge box
 				}
 			}
 			// If the user cancelled the operation
@@ -235,7 +237,7 @@ class editor extends JFrame implements ActionListener {
 				t.print();
 			}
 			catch (Exception evt) {
-				JOptionPane.showMessageDialog(f, evt.getMessage());
+				JOptionPane.showMessageDialog(f, evt.getMessage());//
 			}
 		}
 		else if (s.equals("Open")) {
@@ -342,7 +344,7 @@ class editor extends JFrame implements ActionListener {
 				t.setFont(fb);
 			}
 			
-			repaint();
+			repaint();  //used to handle update to paint cycle 
 			
 		}
 	}
